@@ -1,0 +1,111 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(211, 211, 209);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .app {
+    width: 780px;
+    min-width: 780px;
+    min-height: 250px;
+    height: 250px;
+    background: #FF9D00;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 275px 250px;
+}
+
+.container .app .titleArea {
+    list-style-type: none;
+    width: 342px;
+    height: 51px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container .app .titleArea .title {
+    width: 342px;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font: normal normal bold 24px/24px Roboto Condensed;
+    border: 4px solid #FFFFFF;
+}
+
+.container .app .titleArea .scoreTitle {
+    width: 114px;
+    height: 55px;
+    color: #FF9D00;
+    font: normal normal bold 30px/30px Roboto Condensed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF ;
+}
+
+.container .app .titleArea .score {
+    font: normal normal bold 44px/44px Roboto Condensed;
+    color: #000000;
+    margin: 8px 0 0 8px;
+}
+
+.container .app .time {
+    margin-left: 128px;
+    width: 260px;
+    height: 112px;
+    font: italic normal bold 96px/96px Roboto Condensed;
+    color: #FFFFFF;
+}
+
+.container .app .formula {
+    width: 445px;
+    height: 131px;
+    color: #FFFFFF;
+    font: normal normal bold 112px/112px Roboto Condensed;
+    margin: 114px 30px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container .app .formula li {
+    list-style-type: none;
+}
+
+.container .app .formula .black {
+    color: #000000;
+}
+
+.container .app .answerArea {
+    width: 255px;
+    margin-top: 114px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.container .app .answerArea .answer {
+    width: 255px;
+    height: 131px;
+    background: #FFFFFF;
+    color: #000000;
+    font: normal normal bold 112px/112px Roboto Condensed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .app .answerArea .enterHint {
+    height: 28px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    font: italic normal normal 24px/16px Roboto Condensed;
+}
