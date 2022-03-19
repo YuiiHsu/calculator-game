@@ -17,6 +17,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 175px 200px 175px 200px;
+    list-style: none;
 }
 
 .container .app .secondTitle {
@@ -53,6 +54,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    list-style: none;
 }
 
 .container .app .button {

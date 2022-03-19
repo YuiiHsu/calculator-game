@@ -6,29 +6,29 @@ const StartPage = () => {
     const navigate = useNavigate();
 
     return <div className={style.container}>
-        <div className={style.app}>
-            <div className={style.secondTitle}>
+        <ul className={style.app}>
+            <li className={style.secondTitle}>
                 60
-            </div>
-            <div className={style.title}>
+            </li>
+            <li className={style.title}>
                 SECONDS
                 <div className={style.symbol}>
                     +−×÷
                 </div> CHALLENGE
-            </div>
+            </li>
 
-            <div className={style.buttonArea}>
-                <div>
+            <ul className={style.buttonArea}>
+                <li>
                     <div className={style.button} onClick={() => navigate(routerList.play)}>
                         Play
                     </div>
                     <p>try to answer more as you can</p>
-                </div>
-                <div className={style.button}>
+                </li>
+                <li className={style.button}>
                     Charts
-                </div>
-            </div>
-        </div>
+                </li>
+            </ul>
+        </ul>
     </div>
 }
 
