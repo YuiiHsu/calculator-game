@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import StartPage from './startPage';
+import Router from "./Router/router"
 import reportWebVitals from './reportWebVitals';
+import { useNavigate, HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <StartPage />
+    <Router />
   </React.StrictMode>,
   document.getElementById('root')
 );

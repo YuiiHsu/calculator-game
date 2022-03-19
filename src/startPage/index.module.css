@@ -9,6 +9,8 @@
 
 .container .app {
     width: 880px;
+    min-width: 880px;
+    min-height: 450px;
     height: 450px;
     background: #FF9D00;
     display: flex;
