@@ -95,11 +95,21 @@
     height: 131px;
     background: #FFFFFF;
     color: #000000;
-    font: normal normal bold 112px/112px Roboto Condensed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font: normal normal bold 84px/84px Roboto Condensed;
+    text-align:center
 }
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+  }
 
 .container .app .answerArea .enterHint {
     height: 28px;

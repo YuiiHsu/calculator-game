@@ -15,5 +15,7 @@ export function getMaxNumber(countDown) {
             return 100;
         case (countDown > 40):
             return 10;
+        default:
+            break;
     }
 }

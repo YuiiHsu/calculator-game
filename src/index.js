@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Router from "./Router/router"
 import reportWebVitals from './reportWebVitals';
-import { useNavigate, HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>

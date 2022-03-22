@@ -1,4 +1,4 @@
-import { useNavigate, HashRouter as Router } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { routerList } from "../Router/routerList";
 import style from "./index.module.css";
 

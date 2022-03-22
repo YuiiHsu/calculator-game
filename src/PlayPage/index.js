@@ -5,36 +5,36 @@ import style from "./style.module.css";
 const PlayPage = () => {
     const [countDown, setCountDown] = useState(60);
     const score = useRef(0);
-    const [scoreText, setScoreText] = useState("001");
+    const [scoreText, setScoreText] = useState("000");
     const [num1, setNum1] = useState(0);
     const [num2, setNum2] = useState(0);
-    const [answer, setAnswer] = useState(0);
-    const operator = [
-        {
+    const answer = useRef(0);
+    const operator = {
+        add: {
             text: "add",
             symbol: '+'
         },
-        {
+        minus: {
             text: "minus",
             symbol: '-'
         },
-        {
+        multiply: {
             text: "multiply",
             symbol: 'x'
         },
-        {
+        divided: {
             text: "divided",
             symbol: '÷'
         }
-    ];
-    const [symbol, setSymbol] = useState(operator[0].symbol);
+    };
+    const [symbol, setSymbol] = useState(operator.add.symbol);
 
     /**\
      * 更新數字
      */
     function newNumber() {
         const newSymbolItem = getRandom(Object.keys(operator).length);
-        const newSymbol = operator[newSymbolItem];
+        const newSymbol = Object.entries(operator)[newSymbolItem][1];
         let digits = getMaxNumber(countDown);
         let newNum2 = getRandom(digits);
         if (newSymbol.text === "divided") {
@@ -47,6 +47,97 @@ const PlayPage = () => {
         setNum1(getRandom(digits));
         setNum2(newNum2);
     };
+
+    function changeAnswer(e) {
+        answer.current = e.target.value;
+    };
+
+    /**
+     * 使用者確認後，處理答案
+     * @returns 
+     */
+    function handleAnswer() {
+        if (!symbol) {
+            return;
+        }
+
+        const isCorrent = checkAnswer();
+        handleScore(isCorrent);
+        newNumber();
+
+    };
+
+    /**
+     * 確認答案正確性
+     * @returns 答案是否正確
+     */
+    function checkAnswer() {
+        const currentAnswer = answer.current ? parseInt(answer.current) : 0;
+        switch (true) {
+            case symbol === operator.add.symbol:
+                return num1 + num2 === currentAnswer;
+            case symbol === operator.divided.symbol:
+                return num1 / num2 === currentAnswer;
+            case symbol === operator.minus.symbol:
+                return num1 - num2 === currentAnswer;
+            case symbol === operator.multiply.symbol:
+                return num1 * num2 === currentAnswer;
+            default:
+                break;
+        }
+    };
+
+    /**
+     * 處理成績算分語顯示
+     * @param {*} isCorrent 是否答對
+     */
+    function handleScore(isCorrent) {
+        answer.current = 0;
+        if (!isCorrent && score < 1) {
+            return;
+        }
+
+        switch (true) {
+            case !isCorrent && score.current < 1:
+                return;
+            case !isCorrent:
+                score.current -= 1;
+                break;
+            case isCorrent && countDown > 41:
+                score.current += 1;
+                break;
+            case isCorrent && countDown < 41:
+                score.current += 5;
+                break;
+            default:
+                break;
+        }
+
+        let current = score.current ? score.current.toString() : '000';
+        switch (true) {
+            case score.current > 99:
+                break;
+            case score.current > 9:
+                current = `0${current}`;
+                break;
+            default:
+                current = `00${current}`;
+                break;
+        }
+        setScoreText(current);
+    }
+
+    /**
+     * 監聽enter事件
+     * @param {*} event 
+     */
+    document.onkeydown = function (event) {
+        var e = event || window.event;
+        if (!e) return;
+        if (e.keyCode === 13) {
+            handleAnswer();
+        }
+    }
 
     useEffect(() => {
         newNumber();
@@ -70,10 +161,12 @@ const PlayPage = () => {
                     SCORE
                 </li>
                 <li className={style.score}>
-                    001
+                    {scoreText}
                 </li>
             </ul>
-            <span className={style.time}>00:{countDown}</span>
+            <span className={style.time}>
+                00:{countDown > 10 ? countDown : `0${countDown}`}
+            </span>
 
             <ul className={style.formula}>
                 <li className={style.black}>{num1}</li>
@@ -83,7 +176,11 @@ const PlayPage = () => {
             </ul>
 
             <ul className={style.answerArea}>
-                <li className={style.answer}>{answer}</li>
+                <input
+                    type="number"
+                    className={style.answer}
+                    placeholder="answer"
+                    onChange={changeAnswer} />
                 <li className={style.enterHint}>press enter to answer</li>
             </ul>
         </div>
