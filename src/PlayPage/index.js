@@ -115,7 +115,7 @@ const PlayPage = () => {
                 break;
         }
 
-        let current = score.current ? score.current.toString() : '000';
+        let current = score.current ? score.current.toString() : 0;
         switch (true) {
             case score.current > 99:
                 break;
