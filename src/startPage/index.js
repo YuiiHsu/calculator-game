@@ -24,7 +24,7 @@ const StartPage = () => {
                     </div>
                     <p>try to answer more as you can</p>
                 </li>
-                <li className={style.button}>
+                <li className={style.button} onClick={() => navigate(routerList.charts)}>
                     Charts
                 </li>
             </ul>

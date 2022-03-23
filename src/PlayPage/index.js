@@ -135,8 +135,8 @@ const PlayPage = () => {
             name: name,
             score: score
         }
-        updateScore(request).then(result => {
-            if (result.code !== 0) {
+        updateScore(request).then(res => {
+            if (res.code !== 0) {
                 window.alert("錯誤!!!!!!")
             }
         });

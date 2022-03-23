@@ -1,0 +1,58 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(211, 211, 209);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .app {
+    width: 1080px;
+    min-width: 1080px;
+    min-height: 790px;
+    height: 790px;
+    background: #FF9D00;
+    padding: 0 100px 10px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+/* ScrollBar寬度 */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* ScrollBar顏色*/
+  ::-webkit-scrollbar-track {
+    background-color: #AAAAAA;
+  }
+  /* ScrollBar把手顏色 */
+  ::-webkit-scrollbar-thumb {
+    background: #f8b22e;
+  }
+  /* ScrollBar滑過的把手顏色 */
+  ::-webkit-scrollbar-thumb:hover {
+   background: #AAAAAA;
+  }
+
+.container .app h1{
+    color: #FFFFFF;
+    font: normal normal bold 74px/74px Roboto Condensed;
+}
+
+.container .app table {
+    width: 100%;
+    border-top: 5px solid #FFFFFF;
+}
+
+.container .app th{
+    font: normal normal bold 48px/48px Roboto Condensed;
+}
+
+.container .app td{
+    text-align: left;
+    height: 50px;
+    font: normal normal bold 24px/24px Roboto Condensed;
+    text-align: center;
+}

@@ -3,7 +3,7 @@
  * @param {*} params 
  */
 export const updateScore = (params) => {
-    return fetch('/updateScore', {
+    return fetch('/updatescore', {
         method: 'POST',
         body: JSON.stringify({
             name: params.names,
@@ -19,10 +19,11 @@ export const updateScore = (params) => {
  * @param {*} params 
  */
 export const getScore = (params) => {
-    fetch('/getScore', {
-        method: 'GET',
+    return fetch('/scores', {
+        method: 'POST',
         body: JSON.stringify({
-            name: params.page,
+            page: params.page,
+            pageSize: params.pageSize
         }),
     }).then((res) =>
         res.json()
