@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Router from "./Router/router"
 import reportWebVitals from './reportWebVitals';
+import { worker } from './mocks/browser';
+
+worker.start()
 
 ReactDOM.render(
   <React.StrictMode>

@@ -38,5 +38,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^10.2.4",
+    "msw": "^0.39.2",
+    "workbox-webpack-plugin": "^6.5.1"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

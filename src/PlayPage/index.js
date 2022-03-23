@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { getRandom, getMaxNumber } from "../Util/functions";
+import { updateScore } from "../mocks/api";
 import style from "./style.module.css";
 
 const PlayPage = () => {
@@ -9,6 +10,7 @@ const PlayPage = () => {
     const [num1, setNum1] = useState(0);
     const [num2, setNum2] = useState(0);
     const answer = useRef(0);
+    const [name, setName] = useState('');
     const operator = {
         add: {
             text: "add",
@@ -63,8 +65,8 @@ const PlayPage = () => {
 
         const isCorrent = checkAnswer();
         handleScore(isCorrent);
-        newNumber();
 
+        newNumber();
     };
 
     /**
@@ -127,6 +129,18 @@ const PlayPage = () => {
         setScoreText(current);
     }
 
+    function updateCurrentScore() {
+        const request = {
+            name: name,
+            score: score
+        }
+        updateScore(request).then(result => {
+            if (result.code !== 0) {
+                window.alert("錯誤!!!!!!")
+            }
+        });
+    }
+
     /**
      * 監聽enter事件
      * @param {*} event 
@@ -147,6 +161,9 @@ const PlayPage = () => {
         setTimeout(() => {
             if (countDown > 0) {
                 setCountDown(t => t - 1);
+            }
+            else {
+                updateCurrentScore();
             }
         }, 1000);
     }, [countDown]);
