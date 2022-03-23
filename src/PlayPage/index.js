@@ -1,10 +1,13 @@
 import { useRef, useState, useEffect } from "react";
 import { getRandom, getMaxNumber } from "../Util/functions";
 import { updateScore } from "../mocks/api";
+import { useDispatch } from 'react-redux';
+import * as scoreDuck from "../model/reducer";
 import style from "./style.module.css";
 
 const PlayPage = () => {
-    const [countDown, setCountDown] = useState(60);
+    const dispatch = useDispatch();
+    const [countDown, setCountDown] = useState(5);
     const score = useRef(0);
     const [scoreText, setScoreText] = useState("000");
     const [num1, setNum1] = useState(0);
@@ -134,9 +137,12 @@ const PlayPage = () => {
      * 將記錄存到DB
      */
     function updateCurrentScore() {
+        dispatch(scoreDuck.actions.setPlayerOneName(name));
+        dispatch(scoreDuck.actions.setPlayerOneScore(score.current));
+
         const request = {
             name: name,
-            score: score
+            score: score.current
         }
         updateScore(request).then(res => {
             if (res.code !== 0) {

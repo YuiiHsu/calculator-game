@@ -17,6 +17,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 75px 250px 275px 250px;
+    border-radius: 15px;
 }
 
 .container .app .name {

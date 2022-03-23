@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { routerList } from "../Router/routerList";
+// import { useSelector } from 'react-redux';
 import style from "./index.module.css";
 
 const StartPage = () => {
     const navigate = useNavigate();
+    // const { playerOneName, playerOneScore } = useSelector(state => state);
 
     return <div className={style.container}>
         <ul className={style.app}>

@@ -18,6 +18,7 @@
     flex-wrap: wrap;
     padding: 175px 200px 175px 200px;
     list-style: none;
+    border-radius: 15px;
 }
 
 .container .app .secondTitle {
