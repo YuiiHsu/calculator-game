@@ -30,7 +30,7 @@ const PlayPage = () => {
         }
     };
     const [symbol, setSymbol] = useState(operator.add.symbol);
-
+    const [isOpen, setIsOpen] = useState(true);
     /**\
      * 更新數字
      */
@@ -130,6 +130,9 @@ const PlayPage = () => {
         setScoreText(current);
     }
 
+    /**
+     * 將記錄存到DB
+     */
     function updateCurrentScore() {
         const request = {
             name: name,
@@ -143,6 +146,15 @@ const PlayPage = () => {
     }
 
     /**
+     * 記錄使用者名稱
+     */
+    function handleName() {
+        const currentName = document.getElementById("name").value;
+        setName(currentName);
+        setIsOpen(false);
+    }
+
+    /**
      * 監聽enter事件
      * @param {*} event 
      */
@@ -150,7 +162,12 @@ const PlayPage = () => {
         var e = event || window.event;
         if (!e) return;
         if (e.keyCode === 13) {
-            handleAnswer();
+            if (isOpen) {
+                handleName();
+            }
+            else {
+                handleAnswer();
+            }
         }
     }
 
@@ -160,17 +177,28 @@ const PlayPage = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            if (countDown > 0) {
+            if (countDown > 0 && !isOpen) {
                 setCountDown(t => t - 1);
             }
             else {
                 updateCurrentScore();
             }
         }, 1000);
-    }, [countDown]);
+    }, [countDown, isOpen]);
 
     return <div className={style.container}>
+        {isOpen && <div className={style.dialog}>
+            <div className={style.nameArea}>
+                <h1>Your name:</h1>
+                <input id="name"></input>
+                <p>Please input your name,and it will show in charts after you finish this game.</p>
+            </div>
+        </div>
+        }
         <div className={style.app}>
+            <div className={style.name}>
+                {name}
+            </div>
             <ul className={style.titleArea}>
                 <li className={style.title}>
                     60 SECONDS CHALLENGE
