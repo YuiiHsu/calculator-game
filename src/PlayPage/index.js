@@ -67,6 +67,7 @@ const PlayPage = () => {
         handleScore(isCorrent);
 
         newNumber();
+        document.getElementById("answer").value = "";
     };
 
     /**
@@ -194,6 +195,7 @@ const PlayPage = () => {
 
             <ul className={style.answerArea}>
                 <input
+                    id="answer"
                     type="number"
                     className={style.answer}
                     placeholder="answer"
