@@ -1,13 +1,13 @@
 export const scoreList = [
     {
-        name: 'Yui',
-        sort: 1,
-        score: 999
-    },
-    {
         name: '0影',
         sort: 2,
         score: 100
+    },
+    {
+        name: 'Yui',
+        sort: 1,
+        score: 999
     },
     {
         name: 'Albert',

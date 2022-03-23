@@ -9,10 +9,20 @@ const ChartsPage = () => {
     const pageSize = useRef(20);
     const [list, setList] = useState([]);
 
+    const sortList = (list) => {
+        if (!list) {
+            return [];
+        }
+
+        return list.sort((item1, item2) => {
+            return item1.sort > item2.sort ? 1 : -1;
+        });
+    }
+
     const getList = () => {
         getScore(page, pageSize).then(res => {
             if (res.code === 0) {
-                setList(res.data.list);
+                setList(sortList(res.data.list));
             }
             else {
                 alert(res.message);

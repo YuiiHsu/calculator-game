@@ -39,11 +39,12 @@
 .container .app h1{
     color: #FFFFFF;
     font: normal normal bold 74px/74px Roboto Condensed;
+    border-bottom: 5px solid #FFFFFF;
 }
 
 .container .app table {
     width: 100%;
-    border-top: 5px solid #FFFFFF;
+    border: 5px dashed #000000;
 }
 
 .container .app th{
