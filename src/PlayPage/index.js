@@ -7,7 +7,7 @@ import style from "./style.module.css";
 
 const PlayPage = () => {
     const dispatch = useDispatch();
-    const [countDown, setCountDown] = useState(5);
+    const [countDown, setCountDown] = useState(60);
     const score = useRef(0);
     const [scoreText, setScoreText] = useState("000");
     const [num1, setNum1] = useState(0);
